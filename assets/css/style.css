@@ -1,0 +1,24 @@
+.header {
+    background-image: linear-gradient(to bottom right, #0068B0, #ADC1F1);
+    color: aliceblue;
+    font-weight: bolder;
+    padding: 1rem;
+}
+
+.header-text {
+    text-align: center;
+}
+
+.search-form {
+    padding: 1rem;
+}
+
+.card-header {
+    font-weight: bolder;
+    background-color: white;
+    border: none;
+}
+
+.search-card {
+    border: 5px;
+}
