@@ -11,14 +11,39 @@
 
 .search-form {
     padding: 1rem;
+    border-bottom: 1px solid grey;
 }
 
 .card-header {
-    font-weight: bolder;
     background-color: white;
     border: none;
+    white-space: nowrap;
 }
 
 .search-card {
-    border: 5px;
+    margin: 1rem;
+    padding: 0.5rem;
+    border: 2px solid gray;
+    border-radius: 5px;
+    background-color: whitesmoke;
+}
+.btn {
+    background-image: linear-gradient(to bottom right, #0068B0, #ADC1F1);
+    color: white;
+}
+
+.card {
+    margin: 0.25rem;
+    background-color: whitesmoke;
+}
+
+.search-history {
+    margin-top: 2rem;
+}
+
+#forecast-header {
+    margin-left: 1rem;
+}
+#forecast-box {
+    margin-left: 1rem;
 }
