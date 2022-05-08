@@ -19,10 +19,10 @@
             <section class="col-4">
                 <div class="search-form">
                     <h2 class="card-header">Search for a City:</h2>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="City" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <button class="btn btn-outline-secondary" type="button">Search</button>
-                    </div>
+                    <form id="city-form" class="input-group mb-3">
+                        <input id="city-input" type="text" class="form-control" placeholder="City"></input>
+                        <button class="btn btn-outline-secondary" type="button" onclick="submit">Search</button>
+                    </form>
                 </div>
                 <div class="search-history">
                     <!-- <div class="d-grid gap-2">
@@ -34,8 +34,8 @@
 
             <section class="col-8">
                 <div class="current-card">
-                    <h2 id="current-card-name">City Name <img id="current-card-icon" src="" alt="Weather icon"></h2>
-                    
+                    <h2 id="current-card-name">City Name</h2>
+                    <img id="current-card-icon" src="" alt="Weather icon">
                     <p id="current-card-temp">Temp:</p>
                     <p id="current-card-wind">Wind:</p>
                     <p id="current-card-humid">Humidity:</p>
@@ -46,7 +46,7 @@
                     <h3 id="forecast-header">5 Day Forecast:</h3>
                     <div class="row" id="forecast-box">
 
-                        <!-- <div class="card" style="width: 10rem;">
+                        <!-- <div id="0" class="card" style="width: 10rem;">
                             <div class="card-body">
                               <h5 class="card-title">5/8/2021</h5>
                               <img src="" alt="Weather icon">
@@ -63,6 +63,8 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>

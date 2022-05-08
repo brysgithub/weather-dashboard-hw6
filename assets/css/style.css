@@ -25,7 +25,7 @@
     padding: 0.5rem;
     border: 2px solid gray;
     border-radius: 5px;
-    background-color: whitesmoke;
+    background-color: #A6B9C7;
 }
 .btn {
     background-image: linear-gradient(to bottom right, #0068B0, #ADC1F1);
@@ -34,7 +34,7 @@
 
 .card {
     margin: 0.25rem;
-    background-color: whitesmoke;
+    background-color: #A6B9C7;
 }
 
 .search-history {
