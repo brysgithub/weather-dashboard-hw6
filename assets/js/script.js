@@ -56,12 +56,13 @@ function getCurrentWeather(lat, lon) {
 
 // Add city name to cards
 function appendCurrentName(data) {
-    cityNameEl.textContent = data.name;
+    cityNameEl.textContent = 'Current weather: ' + data.name;
 }
 
 // Add current weather data to main card
 function appendCurrentData(data) {
     cityIconEl.setAttribute('src', `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`);
+    cityIconEl.style.visibility = 'visible';
     cityTempEl.textContent = 'Temp: ' + data.current.temp + '°f';
     cityWindEl.textContent = 'Wind: ' + data.current.wind_speed + ' MPH';
     cityHumidEl.textContent = 'Humidity: ' + data.current.humidity + ' %';
