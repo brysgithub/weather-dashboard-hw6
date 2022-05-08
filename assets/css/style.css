@@ -44,6 +44,11 @@
 #forecast-header {
     margin-left: 1rem;
 }
+
 #forecast-box {
     margin-left: 1rem;
+}
+
+.card-text {
+    font-size: small;
 }

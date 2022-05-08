@@ -22,7 +22,7 @@ var cityUviEl = document.getElementById('current-card-uvi');
 
 // Find city
 function searchCity(city) {
-    var requestURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
+    var requestURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
     fetch(requestURL)
         .then(async function(response){
             if (response.ok) {
@@ -61,7 +61,7 @@ function appendCurrentName(data) {
 
 // Add current weather data to main card
 function appendCurrentData(data) {
-    cityIconEl.setAttribute('src', `http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`);
+    cityIconEl.setAttribute('src', `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`);
     cityTempEl.textContent = 'Temp: ' + data.current.temp + '°f';
     cityWindEl.textContent = 'Wind: ' + data.current.wind_speed + ' MPH';
     cityHumidEl.textContent = 'Humidity: ' + data.current.humidity + ' %';
@@ -92,19 +92,17 @@ function renderCity5Day(data) {
     
     for (let i = 0; i < 6; i++) {
 
-        
-
         var cardTemplate = 
         `<div id="0" class="card" style="width: 10rem;">
-        <div class="card-body">
-          <h6 class="card-title">${moment.unix(data.daily[i].dt).format("MM/DD/YYYY")}</h6>
-          <img src="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png" alt="Weather icon">
-          <p class="card-text">Temp: ${data.daily[i].temp.day + '°f'}</p>
-          <p class="card-text">Wind: ${data.daily[i].wind_speed + ' MPH'}</p>
-          <p class="card-text">Humidity: ${data.daily[i].humidity + ' %'}</p>
-        </div>
-    </div>`
+            <div class="card-body">
+                <h6 class="card-title">${moment.unix(data.daily[i].dt).format("MM/DD/YYYY")}</h6>
+                <img src="https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png" alt="Weather icon">
+                <p class="card-text">Temp: ${data.daily[i].temp.day + '°f'}</p>
+                <p class="card-text">Wind: ${data.daily[i].wind_speed + ' MPH'}</p>
+                <p class="card-text">Humidity: ${data.daily[i].humidity + ' %'}</p>
+            </div>
+        </div>`
     
-    $('#forecast-box').append(cardTemplate);
+        $('#forecast-box').append(cardTemplate);
     }
 };
