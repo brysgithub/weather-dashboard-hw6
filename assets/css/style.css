@@ -11,7 +11,7 @@
 
 .search-form {
     padding: 1rem;
-    border-bottom: 1px solid grey;
+    border-bottom: 3px solid grey;
 }
 
 .card-header {
@@ -20,7 +20,7 @@
     white-space: nowrap;
 }
 
-.search-card {
+.current-card {
     margin: 1rem;
     padding: 0.5rem;
     border: 2px solid gray;
