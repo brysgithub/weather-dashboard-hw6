@@ -91,7 +91,7 @@ cityFormEl.addEventListener('submit', citySubmit);
 // Render 5 day cards
 function renderCity5Day(data) {
     
-    for (let i = 0; i < 6; i++) {
+    for (let i = 1; i < 6; i++) {
 
         var cardTemplate = 
         `<div id="0" class="card" style="width: 10rem;">
@@ -107,3 +107,7 @@ function renderCity5Day(data) {
         $('#forecast-box').append(cardTemplate);
     }
 };
+
+function saveSearch() {
+
+}

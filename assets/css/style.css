@@ -18,6 +18,7 @@
     background-color: white;
     border: none;
     white-space: nowrap;
+    padding: 0.5rem 0rem;
 }
 
 .current-card {
@@ -30,6 +31,7 @@
 .btn {
     background-image: linear-gradient(to bottom right, #0068B0, #ADC1F1);
     color: white;
+    margin-top: 0.5rem;
 }
 
 .card {
