@@ -14,23 +14,28 @@ var cityWindEl = document.getElementById('current-card-wind');
 var cityHumidEl = document.getElementById('current-card-humid');
 var cityUviEl = document.getElementById('current-card-uvi');
 
-// Convert dt from unix
-// function convertDt(unix) {
-//     var dtConvert = new Date(unix * 1000);
-//     var store = dat
-// } 
-
 // Find city
 function searchCity(city) {
     var requestURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
+    
     fetch(requestURL)
         .then(async function(response){
             if (response.ok) {
                 var data = await response.json();
+                var buttonNameCheck = document.getElementById(data.name)
+
                 console.log(data)
                 console.log(data.name)
                 appendCurrentName(data)
                 getCurrentWeather(data.coord.lat, data.coord.lon)
+
+                if (!buttonNameCheck) {
+                    var historyTemplate = 
+                    `<button id="${data.name}" class="btn btn-primary" type="button">${data.name}</button>`
+
+                    $('#search-history').append(historyTemplate);
+                }
+
             } else {
                 alert(response.statusText)
             }
@@ -69,7 +74,7 @@ function renderCurrentData(data) {
     cityUviEl.textContent = 'UVI: ' + data.current.uvi;
 };
 
-// Handle search submit
+// Handle search submit and history submit
 function citySubmit(event) {
     event.preventDefault();
 
@@ -81,10 +86,20 @@ function citySubmit(event) {
       }
 
     console.log(searchInputText);
-
     searchCity(searchInputText);
-
 }
+
+$(document).on('click', '#search-history', function(e) {
+    e.preventDefault();
+    var targetCity = e.target.innerHTML;
+    searchCity(targetCity);
+
+})
+
+// function historySubmit(event) {
+//     event.preventDefault();
+// }
+
 
 cityFormEl.addEventListener('submit', citySubmit);
 
