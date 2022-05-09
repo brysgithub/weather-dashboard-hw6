@@ -46,7 +46,7 @@ function getCurrentWeather(lat, lon) {
                 var data = await response.json();
                 console.log(data)
                 console.log('temp: ' + data.current.temp + '°f', '\n', 'wind: ' + data.current.wind_speed + 'mph', '\n', 'humidity: ' + data.current.humidity + '%', '\n', 'uvi: ' + data.current.uvi, '\n', 'image tag: ' + data.current.weather[0].icon)
-                appendCurrentData(data);
+                renderCurrentData(data);
                 renderCity5Day(data);
             } else {
                 alert(response.statusText)
@@ -60,7 +60,7 @@ function appendCurrentName(data) {
 }
 
 // Add current weather data to main card
-function appendCurrentData(data) {
+function renderCurrentData(data) {
     cityIconEl.setAttribute('src', `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`);
     cityIconEl.style.visibility = 'visible';
     cityTempEl.textContent = 'Temp: ' + data.current.temp + '°f';
@@ -90,11 +90,17 @@ cityFormEl.addEventListener('submit', citySubmit);
 
 // Render 5 day cards
 function renderCity5Day(data) {
+    var card = document.getElementById('forecast-box')
+
+    while (card.lastElementChild) {
+        console.log('methods help me')
+        card.removeChild(card.lastElementChild);
+    }
     
     for (let i = 1; i < 6; i++) {
 
         var cardTemplate = 
-        `<div id="0" class="card" style="width: 10rem;">
+        `<div id="${[i]}" class="card" style="width: 10rem;">
             <div class="card-body">
                 <h6 class="card-title">${moment.unix(data.daily[i].dt).format("MM/DD/YYYY")}</h6>
                 <img src="https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png" alt="Weather icon">
@@ -105,7 +111,8 @@ function renderCity5Day(data) {
         </div>`
     
         $('#forecast-box').append(cardTemplate);
-    }
+    };
+   
 };
 
 function saveSearch() {
