@@ -14,7 +14,7 @@ var cityWindEl = document.getElementById('current-card-wind');
 var cityHumidEl = document.getElementById('current-card-humid');
 var cityUviEl = document.getElementById('current-card-uvi');
 
-// Find city
+// Find city and set history button
 function searchCity(city) {
     var requestURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
     
@@ -74,41 +74,11 @@ function renderCurrentData(data) {
     cityUviEl.textContent = 'UVI: ' + data.current.uvi;
 };
 
-// Handle search submit and history submit
-function citySubmit(event) {
-    event.preventDefault();
-
-    var searchInputText = document.getElementById('city-input').value;
-
-    if (!searchInputText) {
-        console.log('Please input a city!');
-        return;
-      }
-
-    console.log(searchInputText);
-    searchCity(searchInputText);
-}
-
-$(document).on('click', '#search-history', function(e) {
-    e.preventDefault();
-    var targetCity = e.target.innerHTML;
-    searchCity(targetCity);
-
-})
-
-// function historySubmit(event) {
-//     event.preventDefault();
-// }
-
-
-cityFormEl.addEventListener('submit', citySubmit);
-
 // Render 5 day cards
 function renderCity5Day(data) {
     var card = document.getElementById('forecast-box')
 
     while (card.lastElementChild) {
-        console.log('methods help me')
         card.removeChild(card.lastElementChild);
     }
     
@@ -130,6 +100,28 @@ function renderCity5Day(data) {
    
 };
 
-function saveSearch() {
+// Handle search submit
+function citySubmit(event) {
+    event.preventDefault();
 
+    var searchInputText = document.getElementById('city-input').value;
+
+    if (!searchInputText) {
+        console.log('Please input a city!');
+        return;
+      }
+
+    searchCity(searchInputText);
 }
+
+cityFormEl.addEventListener('submit', citySubmit);
+
+// Handle history submit and history save
+$(document).on('click', '#search-history', function(e) {
+    e.preventDefault();
+    var targetCity = e.target.innerHTML;
+    searchCity(targetCity);
+
+    // localStorage.setItem
+
+})
